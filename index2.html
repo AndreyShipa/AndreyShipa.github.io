@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ханойські вежі</title>
+	<style>
+	    #small {
+	        animation: step1 5s forwards, step3 5s 10s forwards, step5 5s 20s forwards, step7 5s 30s forwards;
+	    }
+	    @keyframes step1 {
+	        0% {x:120px; y:160px;}
+	        33% {x:120px; y:40px;}
+	        66% {x:420px; y:40px;}
+	        100% {x:420px; y:220px;}
+	    }
+	    @keyframes step3 {
+	        0% {x:420px; y:220px;}
+	        33% {x:420px; y:40px;}
+	        66% {x:270px; y:40px;}
+	        100% {x:270px; y:190px;}
+	    }
+	    @keyframes step5 {
+	        0% {x:270px; y:190px;}
+	        33% {x:270px; y:40px;}
+	        66% {x:120px; y:40px;}
+	        100% {x:120px; y:220px;}
+	    }
+	    @keyframes step7 {
+	        0% {x:120px; y:220px;}
+	        33% {x:120px; y:40px;}
+	        66% {x:420px; y:40px;}
+	        100% {x:420px; y:160px;}
+	    }
+	    #mid {
+	        animation: step2 5s 5s forwards, step6 5s 25s forwards;
+	    }
+	    @keyframes step2 {
+	        0% {x:110px; y:190px;}
+	        33% {x:110px; y:40px;}
+	        66% {x:260px; y:40px;}
+	        100% {x:260px; y:220px;}
+	    }
+	    @keyframes step6 {
+	        0% {x:260px; y:220px;}
+	        33% {x:260px; y:40px;}
+	        66% {x:410px; y:40px;}
+	        100% {x:410px; y:190px;}
+	    }
+	    #big {
+	        animation: step4 5s 15s forwards;
+	    }
+	    @keyframes step4 {
+	        0% {x:100px; y:220px;}
+	        33% {x:100px; y:40px;}
+	        66% {x:400px; y:40px;}
+	        100% {x:400px; y:220px;}
+	    }
+	</style>
+</head>
+<body>
+    <svg width="600" height="300" style="background: lightyellow">
+        <rect x="0" y="250" width="600" height="50" fill="grey"></rect>
+        <rect x="140" y="80" width="20" height="170" fill="grey"></rect>
+        <rect x="290" y="80" width="20" height="170" fill="grey"></rect>
+        <rect x="440" y="80" width="20" height="170" fill="grey"></rect>
+        
+        <rect x="100" y="220" width="100" height="30" fill="red" id="big"></rect>
+        <rect x="110" y="190" width="80" height="30" fill="green" id="mid"></rect>
+        <rect x="120" y="160" width="60" height="30" fill="blue" id="small"></rect>
+        
+    </svg>
+
+</body>
+</html>
