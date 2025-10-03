@@ -1,253 +1,229 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Повторення теми: Flex-верстка</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 800px;
-      margin: 30px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    .start-screen {
-      text-align: center;
-      margin-top: 100px;
-    }
-    input[type="text"] {
-      padding: 8px;
-      font-size: 16px;
-      width: 250px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    button {
-      background: #007bff;
-      color: white;
-      padding: 8px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-      margin-top: 5px;
-      margin-right: 5px;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-    .question {
-      margin-bottom: 25px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #ddd;
-    }
-    .answers label {
-      display: block;
-      margin: 5px 0;
-    }
-    .correct {
-      color: green;
-      font-weight: bold;
-      display: none;
-      margin-top: 5px;
-    }
-    .result {
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 15px;
-      background: #e8f5e9;
-      border: 2px solid #4caf50;
-      border-radius: 10px;
-      margin-top: 20px;
-      display: none;
-    }
-    .correct-answer {
-      color: green;
-      font-weight: bold;
-    }
-    .wrong-answer {
-      color: red;
-      font-weight: bold;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Повторення теми: Flex-верстка</title>
+<style>
+body {font-family: Arial, sans-serif; background: #f2f2f2; margin:0; padding:0;}
+.container {max-width: 800px; margin: 30px auto; background: white; padding: 20px; border-radius: 10px; box-shadow:0 0 10px #ccc;}
+h1,h2{text-align:center;}
+.start-screen{text-align:center; margin-top:100px;}
+input[type="text"] {padding:8px; font-size:16px; width:250px; margin-top:10px; margin-bottom:10px;}
+button {background:#007bff; color:white; padding:8px 15px; border:none; border-radius:5px; cursor:pointer; font-size:14px; margin-top:5px; margin-right:5px;}
+button:hover{background:#0056b3;}
+.question {margin-bottom:25px; padding-bottom:10px; border-bottom:1px solid #ddd;}
+.answers label {display:block; margin:5px 0;}
+.correct {color:green; font-weight:bold; display:none; margin-top:5px;}
+.result {text-align:center; font-size:18px; font-weight:bold; padding:15px; background:#e8f5e9; border:2px solid #4caf50; border-radius:10px; margin-top:20px; display:none;}
+.correct-answer {color:green; font-weight:bold;}
+.wrong-answer {color:red; font-weight:bold;}
+#timer {text-align:center; font-size:18px; font-weight:bold; margin-bottom:20px;}
+</style>
 </head>
 <body>
 
 <div class="start-screen" id="startScreen">
-  <h1>Повторення теми: Flex-верстка</h1>
-  <p>Введи своє ім’я та натисни кнопку, щоб почати тестування:</p>
-  <input type="text" id="studentName" placeholder="Введи ім’я учня">
-  <br>
-  <button onclick="startTest()">Почати тест</button>
+<h1>Повторення теми: Flex-верстка</h1>
+<p>Введи своє ім’я та натисни кнопку, щоб почати тестування:</p>
+<input type="text" id="studentName" placeholder="Введи ім’я учня"><br>
+<button onclick="startTest()">Почати тест</button>
 </div>
 
 <div class="container" id="testContainer" style="display:none;">
+<h2>Тестові запитання</h2>
+<div id="timer">Час: 10:00</div>
 
-  <h2>Тестові запитання</h2>
+<!-- Питання 1 -->
+<div class="question">
+<p><b>1. Що таке Flexbox у CSS?</b></p>
+<div class="answers">
+<label><input type="radio" name="q1"> Інструмент для створення анімацій</label>
+<label><input type="radio" name="q1" data-correct> Модель для гнучкого компонування елементів</label>
+<label><input type="radio" name="q1"> Тип шрифту</label>
+</div>
+<div class="correct">Правильна відповідь: Модель для гнучкого компонування елементів</div>
+</div>
 
-  <!-- Питання 1 -->
-  <div class="question">
-    <p><b>1. Що таке Flexbox у CSS?</b></p>
-    <div class="answers">
-      <label><input type="radio" name="q1"> Інструмент для створення анімацій</label>
-      <label><input type="radio" name="q1" data-correct> Модель для гнучкого компонування елементів</label>
-      <label><input type="radio" name="q1"> Тип шрифту</label>
-    </div>
-    <div class="correct">Правильна відповідь: Модель для гнучкого компонування елементів</div>
-  </div>
+<!-- Питання 2 -->
+<div class="question">
+<p><b>2. Яка властивість оголошує контейнер як flex-контейнер?</b></p>
+<div class="answers">
+<label><input type="radio" name="q2" data-correct> display: flex;</label>
+<label><input type="radio" name="q2"> flex-container: on;</label>
+<label><input type="radio" name="q2"> display: block;</label>
+</div>
+<div class="correct">Правильна відповідь: display: flex;</div>
+</div>
 
-  <!-- Питання 2 -->
-  <div class="question">
-    <p><b>2. Яка властивість оголошує контейнер як flex-контейнер?</b></p>
-    <div class="answers">
-      <label><input type="radio" name="q2" data-correct> display: flex;</label>
-      <label><input type="radio" name="q2"> flex-container: on;</label>
-      <label><input type="radio" name="q2"> display: block;</label>
-    </div>
-    <div class="correct">Правильна відповідь: display: flex;</div>
-  </div>
+<!-- Питання 3 -->
+<div class="question">
+<p><b>3. Які властивості належать до Flexbox-контейнера? (кілька відповідей)</b></p>
+<div class="answers">
+<label><input type="checkbox" data-correct> justify-content</label>
+<label><input type="checkbox" data-correct> align-items</label>
+<label><input type="checkbox"> font-size</label>
+<label><input type="checkbox" data-correct> flex-wrap</label>
+</div>
+<div class="correct">Правильні відповіді: justify-content, align-items, flex-wrap</div>
+</div>
 
-  <!-- Питання 3 -->
-  <div class="question">
-    <p><b>3. Які властивості належать до Flexbox-контейнера? (кілька відповідей)</b></p>
-    <div class="answers">
-      <label><input type="checkbox" data-correct> justify-content</label>
-      <label><input type="checkbox" data-correct> align-items</label>
-      <label><input type="checkbox"> font-size</label>
-      <label><input type="checkbox" data-correct> flex-wrap</label>
-    </div>
-    <div class="correct">Правильні відповіді: justify-content, align-items, flex-wrap</div>
-  </div>
+<!-- Питання 4 -->
+<div class="question">
+<p><b>4. Властивість <code>justify-content</code> відповідає за:</b></p>
+<div class="answers">
+<label><input type="radio" name="q4" data-correct> Горизонтальне вирівнювання елементів</label>
+<label><input type="radio" name="q4"> Вертикальне вирівнювання елементів</label>
+<label><input type="radio" name="q4"> Розмір шрифту</label>
+</div>
+<div class="correct">Правильна відповідь: Горизонтальне вирівнювання елементів</div>
+</div>
 
-  <!-- Питання 4 -->
-  <div class="question">
-    <p><b>4. Властивість <code>justify-content</code> відповідає за:</b></p>
-    <div class="answers">
-      <label><input type="radio" name="q4" data-correct> Горизонтальне вирівнювання елементів</label>
-      <label><input type="radio" name="q4"> Вертикальне вирівнювання елементів</label>
-      <label><input type="radio" name="q4"> Розмір шрифту</label>
-    </div>
-    <div class="correct">Правильна відповідь: Горизонтальне вирівнювання елементів</div>
-  </div>
+<!-- Питання 5 -->
+<div class="question">
+<p><b>5. Що робить властивість <code>flex-wrap: wrap;</code>?</b></p>
+<div class="answers">
+<label><input type="radio" name="q5"> Вирівнює текст по центру</label>
+<label><input type="radio" name="q5" data-correct> Переносить елементи на новий ряд, якщо не вистачає місця</label>
+<label><input type="radio" name="q5"> Додає відступи</label>
+</div>
+<div class="correct">Правильна відповідь: Переносить елементи на новий ряд</div>
+</div>
 
-  <!-- Питання 5 -->
-  <div class="question">
-    <p><b>5. Що робить властивість <code>flex-wrap: wrap;</code>?</b></p>
-    <div class="answers">
-      <label><input type="radio" name="q5"> Вирівнює текст по центру</label>
-      <label><input type="radio" name="q5" data-correct> Переносить елементи на новий ряд, якщо не вистачає місця</label>
-      <label><input type="radio" name="q5"> Додає відступи</label>
-    </div>
-    <div class="correct">Правильна відповідь: Переносить елементи на новий ряд</div>
-  </div>
+<!-- Питання 6 -->
+<div class="question">
+<p><b>6. Яке значення властивості <code>justify-content</code> розміщує елементи рівномірно з відступами між ними?</b></p>
+<div class="answers">
+<label><input type="radio" name="q6"> center</label>
+<label><input type="radio" name="q6" data-correct> space-between</label>
+<label><input type="radio" name="q6"> flex-start</label>
+</div>
+<div class="correct">Правильна відповідь: space-between</div>
+</div>
 
-  <!-- Питання 6 -->
-  <div class="question">
-    <p><b>6. Яке значення властивості <code>justify-content</code> розміщує елементи рівномірно з відступами між ними?</b></p>
-    <div class="answers">
-      <label><input type="radio" name="q6"> center</label>
-      <label><input type="radio" name="q6" data-correct> space-between</label>
-      <label><input type="radio" name="q6"> flex-start</label>
-    </div>
-    <div class="correct">Правильна відповідь: space-between</div>
-  </div>
+<!-- Питання 7 -->
+<div class="question">
+<p><b>7. Яка вісь вважається головною (main axis) у flex-контейнері за замовчуванням?</b></p>
+<div class="answers">
+<label><input type="radio" name="q7" data-correct> Горизонтальна</label>
+<label><input type="radio" name="q7"> Вертикальна</label>
+<label><input type="radio" name="q7"> Діагональна</label>
+</div>
+<div class="correct">Правильна відповідь: Горизонтальна</div>
+</div>
 
-  <!-- Питання 7 -->
-  <div class="question">
-    <p><b>7. Яка вісь вважається головною (main axis) у flex-контейнері за замовчуванням?</b></p>
-    <div class="answers">
-      <label><input type="radio" name="q7" data-correct> Горизонтальна</label>
-      <label><input type="radio" name="q7"> Вертикальна</label>
-      <label><input type="radio" name="q7"> Діагональна</label>
-    </div>
-    <div class="correct">Правильна відповідь: Горизонтальна</div>
-  </div>
+<!-- Питання 8 -->
+<div class="question">
+<p><b>8. Що робить властивість <code>align-items: center;</code>?</b></p>
+<div class="answers">
+<label><input type="radio" name="q8"> Розміщує елементи горизонтально по центру</label>
+<label><input type="radio" name="q8" data-correct> Вирівнює елементи вертикально по центру</label>
+<label><input type="radio" name="q8"> Додає відступи між елементами</label>
+</div>
+<div class="correct">Правильна відповідь: Вирівнює елементи вертикально по центру</div>
+</div>
 
-  <!-- Питання 8 -->
-  <div class="question">
-    <p><b>8. Що робить властивість <code>align-items: center;</code>?</b></p>
-    <div class="answers">
-      <label><input type="radio" name="q8"> Розміщує елементи горизонтально по центру</label>
-      <label><input type="radio" name="q8" data-correct> Вирівнює елементи вертикально по центру</label>
-      <label><input type="radio" name="q8"> Додає відступи між елементами</label>
-    </div>
-    <div class="correct">Правильна відповідь: Вирівнює елементи вертикально по центру</div>
-  </div>
+<!-- Питання 9 -->
+<div class="question">
+<p><b>9. Властивість <code>align-self</code> використовується для:</b></p>
+<div class="answers">
+<label><input type="radio" name="q9"> Зміни розміру шрифту</label>
+<label><input type="radio" name="q9" data-correct> Вирівнювання окремого елемента всередині flex-контейнера</label>
+<label><input type="radio" name="q9"> Встановлення відступів</label>
+</div>
+<div class="correct">Правильна відповідь: Вирівнювання окремого елемента всередині flex-контейнера</div>
+</div>
 
-  <div style="text-align:center;">
-    <button onclick="calculateResult()">Завершити тест</button>
-  </div>
+<!-- Питання 10 -->
+<div class="question">
+<p><b>10. Властивість <code>flex-grow</code> відповідає за:</b></p>
+<div class="answers">
+<label><input type="radio" name="q10"> Встановлення кольору фону</label>
+<label><input type="radio" name="q10"> Створення тіней</label>
+<label><input type="radio" name="q10" data-correct> Розтягування елемента, щоб зайняти додатковий простір</label>
+</div>
+<div class="correct">Правильна відповідь: Розтягування елемента, щоб зайняти додатковий простір</div>
+</div>
 
-  <div class="result" id="resultBox"></div>
+<div style="text-align:center;">
+<button id="finishBtn" onclick="calculateResult()" disabled>Завершити тест</button>
+</div>
+
+<div class="result" id="resultBox"></div>
 
 </div>
 
 <script>
+let timerInterval;
+let totalTime = 10 * 60; // 10 хвилин
+
 function startTest() {
-  const name = document.getElementById('studentName').value.trim();
-  if (!name) {
-    alert('Будь ласка, введи своє ім’я перед початком тесту.');
-    return;
-  }
-  document.getElementById('startScreen').style.display = 'none';
-  document.getElementById('testContainer').style.display = 'block';
+    const name = document.getElementById('studentName').value.trim();
+    if(!name){ alert('Будь ласка, введи своє ім’я перед початком тесту.'); return;}
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('testContainer').style.display = 'block';
+    startTimer();
+    // слухач на всі inputs
+    const allInputs = document.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+    allInputs.forEach(input=>{
+        input.addEventListener('change', checkAllAnswered);
+    });
 }
 
-function calculateResult() {
-  const questions = document.querySelectorAll('.question');
-  let correctCount = 0;
+function startTimer(){
+    timerInterval = setInterval(()=>{
+        totalTime--;
+        const minutes = Math.floor(totalTime/60);
+        const seconds = totalTime%60;
+        document.getElementById('timer').innerText=`Час: ${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+        if(totalTime<=0){
+            clearInterval(timerInterval);
+            alert('Час вичерпано! Тест завершено автоматично.');
+            calculateResult();
+        }
+    },1000);
+}
 
-  questions.forEach(q => {
-    const correctInputs = q.querySelectorAll('input[data-correct]');
-    let allCorrectSelected = true;
-    let anyIncorrectSelected = false;
-
-    // Перевірка для багатоваріантних питань
-    const selectedInputs = q.querySelectorAll('input:checked');
-    selectedInputs.forEach(input => {
-      if (!input.hasAttribute('data-correct')) anyIncorrectSelected = true;
+function checkAllAnswered(){
+    const questions = document.querySelectorAll('.question');
+    let allAnswered = true;
+    questions.forEach(q=>{
+        const inputs = q.querySelectorAll('input');
+        const anyChecked = Array.from(inputs).some(i=>i.checked);
+        if(!anyChecked) allAnswered=false;
     });
-    correctInputs.forEach(input => {
-      if (!input.checked) allCorrectSelected = false;
+    document.getElementById('finishBtn').disabled = !allAnswered;
+}
+
+function calculateResult(){
+    clearInterval(timerInterval);
+    const questions = document.querySelectorAll('.question');
+    let correctCount = 0;
+    questions.forEach(q=>{
+        const correctInputs = q.querySelectorAll('input[data-correct]');
+        let allCorrectSelected = true;
+        let anyIncorrectSelected = false;
+        const selectedInputs = q.querySelectorAll('input:checked');
+        selectedInputs.forEach(input=>{
+            if(!input.hasAttribute('data-correct')) anyIncorrectSelected=true;
+        });
+        correctInputs.forEach(input=>{
+            if(!input.checked) allCorrectSelected=false;
+        });
+        if(allCorrectSelected && !anyIncorrectSelected) correctCount++;
+        const labels = q.querySelectorAll('label');
+        labels.forEach(label=>{
+            const input = label.querySelector('input');
+            if(input.hasAttribute('data-correct')) label.classList.add('correct-answer');
+            if(input.checked && !input.hasAttribute('data-correct')) label.classList.add('wrong-answer');
+        });
+        q.querySelector('.correct').style.display='block';
     });
-
-    if (allCorrectSelected && !anyIncorrectSelected) {
-      correctCount++;
-    }
-
-    // Підсвічування відповідей
-    const labels = q.querySelectorAll('label');
-    labels.forEach(label => {
-      const input = label.querySelector('input');
-      if (input.hasAttribute('data-correct')) {
-        label.classList.add('correct-answer');
-      }
-      if (input.checked && !input.hasAttribute('data-correct')) {
-        label.classList.add('wrong-answer');
-      }
-    });
-
-    // Показати правильну відповідь текстом
-    q.querySelector('.correct').style.display = 'block';
-  });
-
-  const name = document.getElementById('studentName').value;
-  const total = questions.length;
-  const resultBox = document.getElementById('resultBox');
-  resultBox.style.display = 'block';
-  resultBox.innerHTML = `${name}, ваш результат: ${correctCount} з ${total} правильних відповідей ✅`;
+    const name = document.getElementById('studentName').value;
+    const total = questions.length;
+    const resultBox = document.getElementById('resultBox');
+    resultBox.style.display='block';
+    resultBox.innerHTML=`${name}, ваш результат: ${correctCount} з ${total} правильних відповідей ✅`;
 }
 </script>
 
